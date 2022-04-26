@@ -1,0 +1,9 @@
+<div class="w-full h-20 border-b border-white flex items-center justify-between px-4 lg:px-8">
+    <h1 class="text-4xl text-white">CharityDAO</h1>
+    <button (click)="this.walletService.connectWallet()" *ngIf="!this.walletService.isWalletConnected" class="h-3/5 w-40 bg-white transition-all text-BlueSig hover:bg-gray-200 rounded-xl">Connect Wallet</button>
+    <div *ngIf="this.walletService.isWalletConnected" class="text-white cursor-pointer flex flex-col items-end justify-center h-full">
+        <h1 class="hidden lg:block text-sm mb-1">{{this.walletService.walletAddress}}</h1>
+        <h1 class="block lg:hidden text-sm mb-1">{{this.walletService.walletAddress.slice(0,7)+"..."+this.walletService.walletAddress.slice(-6,-1)}}</h1>
+        <h1 class="text-xs">Your MATIC Balance: {{this.walletService.slicedBalance}}</h1>
+    </div>
+</div>

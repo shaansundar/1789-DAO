@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+import { WalletService } from '../../services/wallet.service';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styles: [
+  ]
+})
+export class HeaderComponent implements OnInit {
+  constructor(public walletService: WalletService) { }
+  ngOnInit(): void {
+      
+  }
+}
