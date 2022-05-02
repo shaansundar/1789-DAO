@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ethers } from 'ethers';
 import { ContractService } from 'src/app/shared/services/contract.service';
 
@@ -10,7 +11,7 @@ import { ContractService } from 'src/app/shared/services/contract.service';
 })
 export class DonateComponent implements OnInit {
   private value: Number;
-  constructor(private contractAccess : ContractService) { 
+  constructor(private contractAccess : ContractService, private router: Router) { 
     this.value=0;
   }
 
@@ -29,6 +30,7 @@ export class DonateComponent implements OnInit {
     await y.wait();
     alert("Thank you for the Donation!")
     window.location.reload();
+    this.router.navigate(['/']);
   }
 
 }
