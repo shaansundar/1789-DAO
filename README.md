@@ -1,6 +1,6 @@
-# AngularEthersHardhatTemplate
+# CharityDAO
 
-🚀 Bootstrap your SEAN Stack with this template
+A simple charity DApp which allows users to randomly donate to the DAO, and the members (anyone actually) collectively decide what is to be done with the funds. It doesn't use OpenZeppelin libraries, and uses native currency as primary (ETH in Ethereum & MATIC in Polygon)
 
 ## Procedure
 
