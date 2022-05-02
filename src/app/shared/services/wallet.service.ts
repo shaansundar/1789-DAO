@@ -18,8 +18,8 @@ export class WalletService {
   public async connectWallet() {
     if (window.ethereum) {
       window.ethereum.enable();
-      if (typeof window.ethereum !== 'undefined') {
-        console.log('MetaMask is installed!');
+      if (typeof window.ethereum == 'undefined') {
+        alert('MetaMask is not installed!');
       }
       this.provider = new ethers.providers.Web3Provider(window.ethereum);
       this.signer = this.provider.getSigner();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContractService } from '../../services/contract.service';
 import { WalletService } from '../../services/wallet.service';
 
 @Component({
@@ -8,8 +9,14 @@ import { WalletService } from '../../services/wallet.service';
   ]
 })
 export class HeaderComponent implements OnInit {
-  constructor(public walletService: WalletService) { }
-  ngOnInit(): void {
-      
+  public contractInterface:any;
+  public balance:any;
+  constructor(public walletService: WalletService, public contractService: ContractService) { 
+  }
+  async ngOnInit(){
+    await this.getBalance();
+  }
+  public async getBalance(){
+    this.balance = await this.contractService.GetBalance();
   }
 }

@@ -10,12 +10,22 @@ export class ContractService {
   public DAOInterface: any;
   constructor(private walletService: WalletService) { 
   }
+  
   async getContract(){
   this.DAOInterface = new ethers.Contract(addresses.Contract1, DAO.abi, this.walletService.signer);
   return(this.DAOInterface)
   }
 
+  public async GetBalance(){
+    let x = await this.getContract();
+    let balance = await x.getBalance();
+    balance = String(Number(balance)/10**18);
+    return(balance);
+  }
+
   public async wipeBalance(){
     await this.DAOInterface.wipeBalance();
+    alert("Wipe Balance Successful");
+    window.location.reload();
   }
 }

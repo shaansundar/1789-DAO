@@ -28,7 +28,6 @@ export class NewProposalComponent implements OnInit {
   // }
 
   async propose() {
-    console.log(ethers.utils.parseEther(this.newProposal.value.Pledge));
     let x = await this.contractAccess.getContract();
     let y = await x.makeProposal(
       this.newProposal.value.Title,
@@ -39,9 +38,6 @@ export class NewProposalComponent implements OnInit {
       }
     );
     await y.wait();
-    console.log(this.newProposal.value.Title);
-    console.log(this.newProposal.value.Desc);
-    console.log(this.newProposal.value.Amount);
     alert("Proposal Submitted Successfully!")
     this.newProposal.reset();
     window.location.reload();

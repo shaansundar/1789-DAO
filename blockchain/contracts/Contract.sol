@@ -13,7 +13,10 @@ contract DAO {
         return address(this).balance;
     }
     
-    
+    function donate() public payable{
+        donationAmount[msg.sender] += msg.value;
+        emit ThanksMessage("Thank you for donating!");
+    }
     
     struct Proposal {
         uint256 proposalID;

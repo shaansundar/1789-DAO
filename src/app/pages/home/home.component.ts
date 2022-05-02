@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
     });
     await tx.wait();
     alert('Vote Successful!');
+    window.location.reload();
   }
   async callAgainst(i: any) {
     this.contractInterface = await this.contractAccess.getContract();
@@ -61,5 +62,6 @@ export class HomeComponent implements OnInit {
     });
     await tx.wait();
     alert('Vote Successful!');
+    window.location.reload();
   }
 }

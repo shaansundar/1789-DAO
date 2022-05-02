@@ -17,7 +17,7 @@ module.exports = {
       accountsBalance: "10000000000000000000000"
     },
     mumbai:{
-      url: process.env.MUMBAI_RPC,
+      url: secret.MUMBAI_RPC || process.env.MUMBAI_RPC,
       accounts: [process.env.PRIVATE_KEY]
     },
     bsctestnet:{
