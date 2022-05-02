@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        "BlueSig":"#0d6dfb",
+        "BlueSig":"#1f1f1f",
+        "BlueSigOriginal":"#0d6dfb",
       }
     },
   },

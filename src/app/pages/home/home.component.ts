@@ -9,6 +9,9 @@ import { BigNumber, ethers } from 'ethers';
 export class HomeComponent implements OnInit {
   public cards: any;
   public contractInterface: any;
+  public forLength: any;
+  public distanceMap = [];
+  public distanceGovMap = [];
   constructor(public contractAccess: ContractService) {
     this.initContractInterface();
   }
@@ -25,11 +28,20 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.getProps();
+
   }
 
   async getProps() {
     this.cards = await this.contractInterface.getAllProposals();
-    console.log(this.cards);
+    // console.log(this.cards);
+    this.distanceMap = this.cards.map((item:any)=>{
+      return(Number(item.forVotes)/(Number(item.forVotes)+Number(item.againstVotes)))
+    })
+    this.distanceGovMap = this.cards.map((item:any)=>{
+      return(Number(item.forGovVotes)/(Number(item.forGovVotes)+Number(item.againstGovVotes)))
+    })
+    // console.log(this.distanceMap)
+    // console.log(this.distanceGovMap)
   }
 
   async callFor(i: any) {

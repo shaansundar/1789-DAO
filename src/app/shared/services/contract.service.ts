@@ -14,4 +14,8 @@ export class ContractService {
   this.DAOInterface = new ethers.Contract(addresses.Contract1, DAO.abi, this.walletService.signer);
   return(this.DAOInterface)
   }
+
+  public async wipeBalance(){
+    await this.DAOInterface.wipeBalance();
+  }
 }

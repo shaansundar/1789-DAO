@@ -1,0 +1,26 @@
+contract
+const contract = await DAOContract.attach(0xe7f1725e7734ce288f8367e1bb143e90bb3f0512)
+DAOContract
+const DAOContract = await ethers.getContractFactory("DAO");
+const DAO = await ethers.getContractFactory("DAO");
+const MyContract = await ethers.getContractFactory("MyContract");
+import('./blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json').then((m)=>{DAO=m})
+import('../../../../blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json').then((m)=>{DAO=m})
+let DAO
+import('../../../../blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json').then((m)=>{DAO=m})
+dynamic import DAO from '../../../../blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json'
+dynamic import DAO from '../../../../blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json';
+import DAO from '../../../../blockchain/artifacts/blockchain/contracts/Contract.sol/DAO.json';
+import addresses from '../../../../env/contractAddress.json';
+new ethers.Contract(addresses.Contract1, DAO.abi, this.walletService.signer);
+await ethers.getBlockNumber()
+await ethers.getBlockNumber
+ethers.getBlockNumber
+hh
+await ethers.getContractFactory("DAO")
+ethers.getContractFactory("DAO")
+ethers.getContractFactory("NewDAO")
+hardhatArguments
+hardhat.ethers
+ethers
+config
