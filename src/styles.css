@@ -3,6 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: #212023;
+body {
+  background: rgb(0, 0, 0);
+  overscroll-behavior-y: none;
+  background: linear-gradient(
+    35deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 72, 105, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+::-webkit-scrollbar {
+    display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -1,7 +1,10 @@
-<div class="w-full h-full p-4 flex flex-col items-center justify-start">
+<div class="w-full h-full p-4 flex flex-col items-center justify-center">
     <div class="max-w-7xl w-full flex flex-col items-center justify-start">
         <label class="w-full my-2 text-2xl text-white" for="donate">Amount <h1 class="text-sm inline">(Min 1 MATIC)</h1></label>
-        <input (keyup)="updateValue($event)" class="w-full my-2 py-2 h-22 text-6xl focus:outline-none bg-transparent border-white border-4 text-white" type="number" id="donate">
+        <input (keyup)="updateValue($event)" class="w-full overflow-y-hidden my-2 py-2 h-22 text-6xl focus:outline-none bg-transparent border-white border-4 text-white" type="number" id="donate">
         <button (click)="Donate()" class="my-4 h-16 text-3xl w-60 bg-white">Donate</button>
+        <label class="w-full my-2 text-2xl text-white" for="role">Assign Official Roles</label>
+        <input (keyup)="updateValueAddress($event)" class="w-full overflow-y-hidden my-2 py-2 h-22 text-6xl focus:outline-none bg-transparent border-white border-4 text-white" type="text" id="role">
+        <button (click)="Assign()" class="my-4 h-16 text-3xl w-60 bg-white">Assign</button>
     </div>
 </div>
