@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="flex my-4 items-center justify-between w-full">
-                    <div class="flex flex-col text-green-400 items-start justify-center">
+                    <div class="flex flex-col text-green-500 items-start justify-center">
                         <h1 class="text-3xl mt-1">{{item.forVotes}}</h1>
                         <h1 class="text-base mt-1">Votes For</h1>
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="flex my-4 items-center justify-between w-full">
-                    <div class="flex flex-col text-green-400 items-start justify-center">
+                    <div class="flex flex-col text-green-500 items-start justify-center">
                         <h1 class="text-3xl mt-1">{{item.forGovVotes}}</h1>
                         <h1 class="text-base mt-1">Government Votes For</h1>
                     </div>
@@ -57,15 +57,16 @@
             
             <div
                 class="w-full mt-12 mb-2 flex lg:flex-row flex-col items-start lg:items-end justify-evenly lg:justify-between h-full">
-                <h1 class="text-white text-lg md:text-2xl">Amount to Raise:
+                <h1 class="text-white w-full text-center text-3xl md:text-3xl">Amount to Raise:
                     {{item.proposalAmount/(1000000000000000000)}} MATIC
                 </h1>
             </div>
             <div class="w-full flex flex-col items-center justify-center pb-4">
-                <h1 [ngStyle]="{color: (item.isPassed ? 'green' : 'red')}" class="text-white text-xs mt-1">IsPassed:
-                    {{item.isPassed}}</h1>
-                <h1 [ngStyle]="{color: (item.isValid ? 'green' : 'red')}" class="text-white text-xs mb-1">IsValid:
-                    {{item.isValid}}</h1>
+                <h1 *ngIf="item.isPassed" class="text-green-500 text-base mt-1">This Proposal has been successfully passed and processed!</h1>
+                <h1 *ngIf="!item.isPassed" class="text-red-500 text-base mt-1">This Proposal Failed either due to majority voting against or insufficient funds</h1>
+                <h1 *ngIf="item.isValid" class="text-orange-500 text-base mt-1">Voting Period: Active</h1>
+                <h1 *ngIf="!item.isValid" class="text-green-500 text-base mt-1">Voting Period: Complete</h1>
+                
             </div>
         </div>
         <div class="flex w-full items-center justify-between">
