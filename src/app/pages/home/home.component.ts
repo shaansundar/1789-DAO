@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContractService } from 'src/app/shared/services/contract.service';
-import { BigNumber, ethers } from 'ethers';
+import { ethers } from 'ethers';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -33,12 +33,19 @@ export class HomeComponent implements OnInit {
 
   async getProps() {
     this.cards = await this.contractInterface.getAllProposals();
+    this.cards = this.cards.slice().reverse();
     // console.log(this.cards);
     this.distanceMap = this.cards.map((item:any)=>{
-      return(Number(item.forVotes)/(Number(item.forVotes)+Number(item.againstVotes)))
+      if(item.forVotes === 0 && item.againstVotes===0){
+        console.log("Hello")
+        return(0);
+      }
+      else{
+      return(Number(item.forVotes)/((Number(item.forVotes)+Number(item.againstVotes))))
+      }
     })
     this.distanceGovMap = this.cards.map((item:any)=>{
-      return(Number(item.forGovVotes)/(Number(item.forGovVotes)+Number(item.againstGovVotes)))
+      return(Number(item.forGovVotes)/((Number(item.forGovVotes)+Number(item.againstGovVotes))))
     })
     // console.log(this.distanceMap)
     // console.log(this.distanceGovMap)
@@ -48,7 +55,7 @@ export class HomeComponent implements OnInit {
     this.contractInterface = await this.contractAccess.getContract();
     console.log('Calling For');
     let tx = await this.contractInterface.voteFor(i, {
-      value: ethers.utils.parseEther('1'),
+      value: ethers.utils.parseEther('0.01'),
     });
     await tx.wait();
     alert('Vote Successful!');
@@ -58,7 +65,7 @@ export class HomeComponent implements OnInit {
     this.contractInterface = await this.contractAccess.getContract();
     console.log('Calling Against');
     let tx = await this.contractInterface.voteAgainst(i, {
-      value: ethers.utils.parseEther('1'),
+      value: ethers.utils.parseEther('0.01'),
     });
     await tx.wait();
     alert('Vote Successful!');

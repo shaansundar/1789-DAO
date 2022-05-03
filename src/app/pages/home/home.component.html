@@ -2,48 +2,77 @@
     <div class="border-4 w-4/5 max-w-7xl rounded-xl m-4 border-white" *ngFor="let item of cards, let i = index">
         <div class="p-4 pb-0 flex flex-col items-start justify-start">
             <div class="flex mb-4 w-full items-start justify-between">
-                <h1 class="text-white text-2xl md:text-3xl">{{item.proposalName}}</h1>
-                <h1 class="text-xs text-white">Proposal ID: #{{item.proposalID}}</h1>
+                <h1 class="text-white text-5xl md:text-5xl">{{item.proposalName}}</h1>
+                <h1 class="text-base text-white">Proposal ID: #{{item.proposalID}}</h1>
             </div>
             <div class="w-full flex flex-col items-start justify-start">
-                <p class="text-white text-sm">Description: {{item.proposalDesc}}</p>
-                <h1 class="text-xs my-2 text-white">Proposer & Beneficiary: {{item.proposer}}</h1>
-                <h1 class="text-white text-base my-1">Deadline: {{getDate(item.voteDeadline)}}</h1>
-                <h1 class="text-white text-xs mt-1">Votes For: {{item.forVotes}}</h1>
-                <h1 class="text-white text-xs mb-1">Gov Votes For: {{item.forGovVotes}}</h1>
-                <h1 class="text-white text-xs mt-1">Votes Against: {{item.againstVotes}}</h1>
-                <h1 class="text-white text-xs mb-1">Gov Votes Against: {{item.againstGovVotes}}</h1>
-                <h1 [ngStyle]="{color: (item.isPassed ? 'green' : 'red')}" class="text-white text-xs mt-1">IsPassed: {{item.isPassed}}</h1>
-                <h1 [ngStyle]="{color: (item.isValid ? 'green' : 'red')}" class="text-white text-xs mb-1">IsValid: {{item.isValid}}</h1>
-            </div>
-            <div class="w-full flex my-8 flex-col items-center justify-center">
-                <h1 class="text-white font-bold text-xl">Votes For and Against</h1>
-                <div class="w-full border-4 border-white h-8">
-                    <div [ngStyle]="{width: distanceMap[i]*100 + '%'}" class="bg-white h-full">
+                <h1 class="text-base my-2 text-white">Proposer & Beneficiary: {{item.proposer}}</h1>
+                <p class="text-white my-8 text-xl">Description: {{item.proposalDesc}}</p>
+                <h1 class="text-white mb-8 text-sm">Deadline: {{getDate(item.voteDeadline)}}</h1>
+                
+                <div class="w-full flex mt-8 flex-col items-center justify-center">
+                    <h1 class="text-white mb-2 font-bold text-3xl">Votes For and Against</h1>
+                    <div class="w-full border-4 flex items-center justify-center border-white h-8">
+                        <div [ngStyle]="{width: distanceMap[i]*100 + '%'}" class="bg-green-500 h-full">
+                        </div>
+                        <div [ngStyle]="{width: 100-distanceMap[i]*100 + '%'}" class="bg-red-500 h-full">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="w-full flex my-8 flex-col items-center justify-center">
-                <h1 class="text-white font-bold text-xl">Gov Votes For and Against</h1>
-                <div class="w-full border-4 border-white h-8">
-                    <div [ngStyle]="{width: distanceGovMap[i]*100 + '%'}" class="bg-white h-full">
+                <div class="flex my-4 items-center justify-between w-full">
+                    <div class="flex flex-col text-green-400 items-start justify-center">
+                        <h1 class="text-3xl mt-1">{{item.forVotes}}</h1>
+                        <h1 class="text-base mt-1">Votes For</h1>
+                    </div>
+                    <div class="flex flex-col text-red-500 items-end justify-center">
+                        <h1 class="text-3xl mt-1">{{item.againstVotes}}</h1>
+                        <h1 class="text-base mt-1">Votes Against</h1>
                     </div>
                 </div>
+                <div class="w-full flex mt-8 flex-col items-center justify-center">
+                    <h1 class="text-white mb-2 font-bold text-3xl">Gov Votes For and Against</h1>
+                    <div class="w-full border-4 flex items-center justify-center border-white h-8">
+                        <div [ngStyle]="{width: distanceGovMap[i]*100 + '%'}" class="bg-green-500 h-full">
+                        </div>
+                        <div [ngStyle]="{width: 100-distanceGovMap[i]*100 + '%'}" class="bg-red-500 h-full">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex my-4 items-center justify-between w-full">
+                    <div class="flex flex-col text-green-400 items-start justify-center">
+                        <h1 class="text-3xl mt-1">{{item.forGovVotes}}</h1>
+                        <h1 class="text-base mt-1">Government Votes For</h1>
+                    </div>
+                    <div class="flex flex-col text-red-500 items-end justify-center">
+                        <h1 class="text-3xl mt-1">{{item.againstGovVotes}}</h1>
+                        <h1 class="text-base mt-1">Government Votes Against</h1>
+                    </div>
+                    <!-- <h1 class="text-white text-xs mb-1">Gov Votes For: {{item.forGovVotes}}</h1>
+                    <h1 class="text-white text-xs mt-1">Votes Against: {{item.againstVotes}}</h1>
+                    <h1 class="text-white text-xs mb-1">Gov Votes Against: {{item.againstGovVotes}}</h1> -->
+                </div>
+                
             </div>
-
+            
+            
             <div
-                class="w-full mb-2 flex lg:flex-row flex-col items-start lg:items-end justify-evenly lg:justify-between h-full">
+                class="w-full mt-12 mb-2 flex lg:flex-row flex-col items-start lg:items-end justify-evenly lg:justify-between h-full">
                 <h1 class="text-white text-lg md:text-2xl">Amount to Raise:
                     {{item.proposalAmount/(1000000000000000000)}} MATIC
                 </h1>
             </div>
+            <div class="w-full flex flex-col items-center justify-center pb-4">
+                <h1 [ngStyle]="{color: (item.isPassed ? 'green' : 'red')}" class="text-white text-xs mt-1">IsPassed:
+                    {{item.isPassed}}</h1>
+                <h1 [ngStyle]="{color: (item.isValid ? 'green' : 'red')}" class="text-white text-xs mb-1">IsValid:
+                    {{item.isValid}}</h1>
+            </div>
         </div>
         <div class="flex w-full items-center justify-between">
             <button (click)="callFor(item.proposalID)"
-                class=" bg-white hover:bg-gray-200 transition-all text-BlueSig h-12 w-1/2 rounded-bl-md">Vote For
-                :)</button>
+                class=" bg-white hover:bg-gray-200 transition-all text-BlueSig h-12 w-1/2 rounded-bl-md">Vote
+                For
+            </button>
             <button (click)="callAgainst(item.proposalID)"
-                class=" text-white h-12 w-1/2 hover:underline border-t-4 border-white">Vote Against :(</button>
+                class=" text-white h-12 w-1/2 hover:underline border-t-4 border-white">Vote Against</button>
         </div>
-    </div>
-</div>

@@ -77,6 +77,7 @@ contract DAO {
         uint256 amount
     ) public payable returns (bool) {
         require(msg.value >= 1 * 10**17, "Minimum contribution is 0.1 MATIC");
+        donationAmount[msg.sender] += msg.value;
         Proposal memory newProposal;
 
         newProposal.proposalID = counter;
@@ -86,7 +87,7 @@ contract DAO {
         newProposal.proposer = tx.origin;
         newProposal.forVotes = 0;
         newProposal.againstVotes = 0;
-        newProposal.voteDeadline = block.timestamp + 180;
+        newProposal.voteDeadline = block.timestamp + 240;
         newProposal.isValid = true;
         newProposal.isPassed = false;
         // newProposal.isPaid = false;
@@ -156,7 +157,7 @@ contract DAO {
     function voteFor(uint256 _id) public payable hasExpired(_id) returns (bool value) {
         donationAmount[msg.sender] += msg.value;
         if( isGovOfficial[msg.sender]){
-            allProposals[_id].forGovVotes += donationAmount[msg.sender];
+            allProposals[_id].forGovVotes += 1;
         }
         else{
             allProposals[_id].forVotes += donationAmount[msg.sender];
@@ -167,7 +168,7 @@ contract DAO {
     function voteAgainst(uint256 _id) public payable hasExpired(_id) returns (bool value) {
         donationAmount[msg.sender] += msg.value;
         if( isGovOfficial[msg.sender]){
-            allProposals[_id].againstGovVotes += donationAmount[msg.sender];
+            allProposals[_id].againstGovVotes += 1;
         }
         else{
             allProposals[_id].againstVotes += donationAmount[msg.sender];

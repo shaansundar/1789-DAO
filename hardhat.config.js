@@ -13,16 +13,16 @@ module.exports = {
   },
   networks:{
     localhost:{
-      privateKey: [process.env.PRIVATE_KEY],
+      privateKey: [secret.PRIVATE_KEY],
       accountsBalance: "10000000000000000000000"
     },
     mumbai:{
       url: secret.MUMBAI_RPC || process.env.MUMBAI_RPC,
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [secret.PRIVATE_KEY]
     },
     bsctestnet:{
-      url: process.env.BSCTESTNET_RPC,
-      accounts: [process.env.PRIVATE_KEY]
+      url: secret.BSCTESTNET_RPC,
+      accounts: [secret.PRIVATE_KEY]
     }
   }
 };
