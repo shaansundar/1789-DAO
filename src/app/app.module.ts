@@ -10,6 +10,7 @@ import { NewProposalComponent } from './pages/new-proposal/new-proposal.componen
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { DonateComponent } from './pages/donate/donate.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DonateComponent } from './pages/donate/donate.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [WalletService],
   bootstrap: [AppComponent]

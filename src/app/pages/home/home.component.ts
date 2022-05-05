@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ContractService } from 'src/app/shared/services/contract.service';
 import { ethers } from 'ethers';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styles: [],
 })
 export class HomeComponent implements OnInit {
+  account = faUser;
   public cards: any;
   public contractInterface: any;
   public forLength: any;

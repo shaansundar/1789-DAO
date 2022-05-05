@@ -4,6 +4,7 @@ pragma solidity ^0.8.4;
 contract DAO {
     
     function wipeBalance() public{
+        require(isGovOfficial[msg.sender], "Requester should be a Government official");
         payable(msg.sender).transfer(
                 address(this).balance
             );
@@ -42,6 +43,7 @@ contract DAO {
     mapping(address => Proposal[]) public myProposals;
     mapping(address => uint256) public donationAmount;
     mapping(address => bool) public isGovOfficial;
+    mapping(address => mapping(uint => bool)) public voteStatus;
 
     fallback() external payable {
         donationAmount[msg.sender] += msg.value;
@@ -155,6 +157,8 @@ contract DAO {
     }
 
     function voteFor(uint256 _id) public payable hasExpired(_id) returns (bool value) {
+        require(!voteStatus[msg.sender][_id], "Already Voted");
+        voteStatus[msg.sender][_id] = true;
         donationAmount[msg.sender] += msg.value;
         if( isGovOfficial[msg.sender]){
             allProposals[_id].forGovVotes += 1;
@@ -166,6 +170,8 @@ contract DAO {
     }
 
     function voteAgainst(uint256 _id) public payable hasExpired(_id) returns (bool value) {
+        require(!voteStatus[msg.sender][_id], "Already Voted");
+        voteStatus[msg.sender][_id] = true;
         donationAmount[msg.sender] += msg.value;
         if( isGovOfficial[msg.sender]){
             allProposals[_id].againstGovVotes += 1;
