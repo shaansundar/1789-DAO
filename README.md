@@ -30,6 +30,31 @@ npx hardhat test
 npx hardhat deploy scripts/deploy.js
 ```
 
+## CharityDAO V2 APIs
+
+The contracts are formed with three roles in mind:
+- Admins
+- Donors
+- DAO Participants
+
+And all a member can play two or more roles at the same time too. However, the Admin cannot contribute as freely as non-admins can by being a Donor or a Participant.
+
+List of Methods and Functions
+
+```
+wipeBalance()
+donate(bool)
+donateVotingRights(uint256, uint256)
+addAdmin(address)
+removeAdmin(address)
+setGlobalBallotSeclusion(uint256)
+setBallotSeclusionById(uint256, uint256)
+makeProposal(string, string, uint256, address)
+makeRightsDonationProposal(string)
+vote(uint256, bool)
+```
+
+
 ## Contribute
 Feel free to contribute to the template. It's the best coffee you could get me :)
 
