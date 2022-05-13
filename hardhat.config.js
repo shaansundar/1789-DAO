@@ -4,7 +4,22 @@ const secret = require("./env/secrets.json");
 
 // 0xE74386ddDdd842440AAefb545B7f717D5DA0d109
 module.exports = {
-  solidity: "0.8.4",
+  solidity:{
+    version: "0.8.4",
+    // settings: {
+    //   optimizer: {
+    //     enabled: true,
+    //     runs: 200,
+    //     details: {
+    //       yul: true,
+    //       yulDetails: {
+    //         stackAllocation: false,
+    //         optimizerSteps: "dhfoDgvulfnTUtnIf"
+    //       }
+    //     }
+    //   }
+    // },
+  },
   paths:{
     sources: "./blockchain/contracts",
     tests: "./blockchain/tests",
