@@ -80,7 +80,6 @@ And all a member can play two or more roles at the same time too. However, the A
 List of Methods and Functions
 
 ```
-
 constructor(uint256 _globalBallotSeclusion, uint256 _globalProposalVotingDeadline)
 
 wipeBalance()
