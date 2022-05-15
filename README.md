@@ -42,13 +42,22 @@ And all a member can play two or more roles at the same time too. However, the A
 List of Methods and Functions
 
 ```
+
+constructor(uint256 _globalBallotSeclusion, uint256 _globalProposalVotingDeadline)
+
 wipeBalance()
-donate(bool)
-donateVotingRights(uint256, uint256)
-addAdmin(address)
-removeAdmin(address)
+
+fallback()
+receive()
+donate(bool _isAnonymous)
+donateVotingRights(uint256 _votingRightsRequestProposalId, uint256 _amountOfRightsToDonate)
+
+addAdmin(address _member)
+removeAdmin(address _member)
+
 setGlobalBallotSeclusion(uint256)
 setBallotSeclusionById(uint256, uint256)
+
 makeProposal(string, string, uint256, address)
 makeRightsDonationProposal(string)
 vote(uint256, bool)

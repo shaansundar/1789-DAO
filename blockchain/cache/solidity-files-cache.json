@@ -2,9 +2,46 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\shaan\\Programs\\SEAN\\CharityDAO\\blockchain\\contracts\\CharityDAO.sol": {
-      "lastModificationDate": 1652443693129,
-      "contentHash": "091683690463677be7b9f834b5a6bf33",
+      "lastModificationDate": 1652460021042,
+      "contentHash": "b18713ec538948dfa3801b0b6bf7bf86",
       "sourceName": "blockchain/contracts/CharityDAO.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/security/Pausable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "CharityDAO"
+      ]
+    },
+    "C:\\Users\\shaan\\Programs\\SEAN\\CharityDAO\\blockchain\\contracts\\CharityDAO_V1.sol": {
+      "lastModificationDate": 1652459147047,
+      "contentHash": "90c46bd40a5424f273e24dd3f075ddd1",
+      "sourceName": "blockchain/contracts/CharityDAO_V1.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -33,7 +70,79 @@
         "^0.8.4"
       ],
       "artifacts": [
-        "CharityDAO"
+        "DAO"
+      ]
+    },
+    "C:\\Users\\shaan\\Programs\\SEAN\\CharityDAO\\node_modules\\@openzeppelin\\contracts\\security\\Pausable.sol": {
+      "lastModificationDate": 1652351386218,
+      "contentHash": "9c2dccab8e3a43a18c41e358763fe4d8",
+      "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Pausable"
+      ]
+    },
+    "C:\\Users\\shaan\\Programs\\SEAN\\CharityDAO\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1652351385312,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
       ]
     }
   }
